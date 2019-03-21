@@ -27,7 +27,8 @@ public class PlaylistResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllPlaylists(@QueryParam("token") String token) {
-        return Response.ok(playlistService.getPlaylistsOverview(token)).build();
+        //return Response.ok(playlistService.getPlaylistsOverview(token)).build();
+        return Response.ok("nice").build();
     }
 
     @Path("{id}")

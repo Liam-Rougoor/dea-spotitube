@@ -2,14 +2,24 @@ package liam.dea.services;
 
 import liam.dea.dataobjects.Playlist;
 import liam.dea.dataobjects.PlaylistsOverview;
+import liam.dea.persistence.DefaultPlaylistDAO;
 import liam.dea.persistence.PlaylistDAO;
 
 import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 
 @Default
 public class DatabasePlaylistService implements PlaylistService {
 
-    private PlaylistDAO playlistDAO = new PlaylistDAO();
+    private PlaylistDAO playlistDAO;
+
+    public DatabasePlaylistService() {
+    }
+
+    @Inject
+    public DatabasePlaylistService(PlaylistDAO playlistDAO) {
+        this.playlistDAO = playlistDAO;
+    }
 
     @Override
     public PlaylistsOverview getPlaylistsOverview(String token) {
